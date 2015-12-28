@@ -1,0 +1,74 @@
+body {
+    background-color: rgba(100, 100, 100, 1);
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    font-family: Monaco;
+
+}
+
+body input,
+body label {
+    display: block;
+}
+
+h1 {
+    text-align: center;
+    color: rgba(50, 25, 50, 1);
+}
+
+
+textarea {
+    outline: none;
+    border: none;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 2px 0.5em;
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    width: 50%;
+    padding-left: 1em;
+    margin: 0 auto;
+    margin-top: 20px;
+    height: 36px;
+    overflow: hidden;
+    resize: none;
+    color: rgba(50, 50, 200, 1);
+    border-radius: 5px;
+    border: 1px solid rgba(50, 50, 50, 1);
+}
+
+div.messages {
+    color: rgba(50, 50, 200, 1);
+    background-color: rgba(255, 255, 255, 1);
+    max-height: 50vh;
+    height: 50vh;
+    width: 50%;
+    padding-left: 1em;
+    margin: 0 auto;
+    overflow: auto;
+    border-radius: 5px;
+    border-top: 1px solid rgba(50, 50, 50, 1);
+    border-bottom: 1px solid rgba(50, 50, 50, 1);
+}
+
+p{
+    color: rgba(50, 50, 200, 1);
+    font-family: Monaco;
+    font-weight: bold;
+}
+
+div.status{
+    display: block;
+    font-size: 1em;
+    color: rgba(250, 150, 150, 1);
+    font-style: italic;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+form {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
