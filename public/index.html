@@ -4,17 +4,57 @@
     <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
     <meta charset="utf-8">
     <title>LoChat</title>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
-	<div class="status", id="statusMessage"></div>
-	<h1>Connecting to LoChat...</h1>
-	<div class="messages", id="messagesBox"></div>
-	<form action="javascript:void(0)">
-    	<textarea type="text" id="message" placeholder="Enter your message..." required autofocus ></textarea>
-	</form>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+ 		<div class="row" style="margin-top: 10%">
+			<div class="col-xs-2"></div>
+			<div class="col-xs-3 people-online-box" id="onlineBox">
+ 				<p>LoChat <span class="label label-success">On</span>
+			</div>
+
+			<div class="col-xs-6 message-box" id="messagesBox">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-2"></div>
+			<div class="col-xs-3 status-box" id="statusBox">
+				<p class="message-stats" id="message-stats">...</p>
+				<p class="users-stats" id="users-stats">...</p>
+				<p class="status-label" id="statusLabel">Connecting to LoChat...</p>
+			 </div>
+			 <div class="col-xs-6">
+			 	<div class="row">
+			 		<div class="col-xs-11">
+			 			<textarea class="form-control" placeholder="Type a message..." id="newMessageBox"></textarea>
+			 		</div>
+			 		<div class="col-xs-1">
+			 		<button type="button" class="btn btn-custom send-btn" id="sendBtn">
+			 		  	<span class="glyphicon glyphicon-send big-glyph" aria-hidden="true"></span>
+			 		</button>
+			 		</div>
+			 	</div>
+
+			 </div>
+			<div class="col-xs-1"></div>
+		</div>
+<!-- 	</div>
+ -->
 <script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
 <script src="script.js"></script>
+    <div style="position: relative">
+      	<p style="position: fixed; bottom: 0; width:100%; text-align: center"> Developed by Lorenzo Piccoli Módolo</p>
+    </div>
 </body>
 </html>

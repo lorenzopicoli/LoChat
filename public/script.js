@@ -1,4 +1,4 @@
-var socket = io("http://192.168.25.6:3001");
+var socket = io("http://192.168.25.6:3000");
 var isWindowFocused = true;
 var $messages = $("#messagesBox");
 
@@ -29,13 +29,27 @@ socket.on("message", function(message){
     printMessage(message);
     if(!isWindowFocused){
         //Remember to slice the message to remove the <i>HH:mm</i>
-        showNotification("New message on LoChat", message.slice(15, message.length));
+        showNotification("New message on LoChat", message.user.name + ": " + message.text);
     }
     scrollMessagesToBottom();
 });
 
-socket.on("statusUpdate", function(message){
-    $("#statusMessage")[0].innerHTML = (message);
+socket.on("statusUpdate", function(messagesSent, users){
+	$("#message-stats").text(messagesSent + " messages sent.");
+	$("#users-stats").text(users.length + " users online.");
+	$("#onlineBox").empty();
+
+	users.unshift({name: "LoChat"});
+	users.forEach(function(user){
+		var p = $("<p>");
+		p.append(user.name + " ");
+		var span = $("<span>");
+		span.attr("class", "label label-success");
+		span.append('On');
+		p.append(span);
+		$("#onlineBox").append(p);
+
+	});
 });
 
 socket.on("connect", function(){
@@ -68,14 +82,19 @@ $(window).on("blur focus", function(e) {
     $(this).data("prevType", e.type);
 });
 
-$('#message').on('keypress', function(e) {
+$(window).on("beforeunload", function() {
+	socket.emit("disconnect");
+	socket.disconnect();
+});
+
+$('#newMessageBox').on('keypress', function(e) {
     if (e.which == 13 && ! e.shiftKey) {
-
-        var input = $('#message');
-        socket.emit("newMessage", input.val());
-
-        if(input.val() === "connect"){
+		var input = $('#newMessageBox');
+        if(input.val() === "/connect"){
             socket.connect();
+        }else{
+        	
+        	socket.emit("newMessage", input.val());
         }
 
         input.val('');
@@ -85,12 +104,23 @@ $('#message').on('keypress', function(e) {
     }
 });
 
+$("#sendBtn").on("click", function(){
+	var input = $('#newMessageBox');
+      if(input.val() === "/connect"){
+         socket.connect();
+      }else{
+      	socket.emit("newMessage", input.val());
+     }
+
+     input.val('');
+});
+
 function scrollMessagesToBottom(){
-    $messages.scrollTop($messages.height());
+    $messages.scrollTop($messages.height() + $messages[0].scrollHeight );
 }
 
 function setTitle(title) {
-    document.querySelector('h1').innerHTML = title;
+    $("#statusLabel").text(title);
 }
 
 function printMessage(message) {
@@ -98,10 +128,15 @@ function printMessage(message) {
 	//Scape characters to protect against some types of XSS
     var p = $("<p>");
     var i = $('<i>');
-    var text = document.createTextNode(message.slice(15, message.length));
-    var time = message.slice(0, 15);
+    var b = $('<b>');
+    var text = " - " + message.text;
+    var username = " " + message.user.name;
+    var time = message.time;
    	i.append(time);
+   	i.attr("style", 'font-size: 0.8em;');
+   	b.append(username);
    	p.append(i);
+   	p.append(b);
    	p.append(text);
     $("#messagesBox").append(p);
 }

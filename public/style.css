@@ -1,74 +1,188 @@
-body {
-    background-color: rgba(100, 100, 100, 1);
-    background-position: 50% 0%;
-    background-repeat: no-repeat;
-    font-family: Monaco;
-
+body{
+    background-color:    #2fa192;
+    font-family: "Monaco";
 }
 
-body input,
-body label {
-    display: block;
-}
-
-h1 {
+h3{
     text-align: center;
-    color: rgba(50, 25, 50, 1);
+    margin-top: 0;
 }
 
-
-textarea {
-    outline: none;
-    border: none;
-    background-color: rgba(255, 255, 255, 1);
-    padding: 2px 0.5em;
-    display: block;
-    font-size: 1em;
-    font-weight: bold;
-    width: 50%;
-    padding-left: 1em;
-    margin: 0 auto;
-    margin-top: 20px;
-    height: 36px;
-    overflow: hidden;
-    resize: none;
-    color: rgba(50, 50, 200, 1);
-    border-radius: 5px;
-    border: 1px solid rgba(50, 50, 50, 1);
+h6{
+    text-align: center;
 }
 
-div.messages {
-    color: rgba(50, 50, 200, 1);
-    background-color: rgba(255, 255, 255, 1);
-    max-height: 50vh;
-    height: 50vh;
-    width: 50%;
-    padding-left: 1em;
-    margin: 0 auto;
+.people-online-box{
+    font-family: "Monaco";
+    background-color: #bbbeb5;
+    min-height: 400px;
+    max-height: 400px;
+    max-width: 200px;
     overflow: auto;
-    border-radius: 5px;
-    border-top: 1px solid rgba(50, 50, 50, 1);
-    border-bottom: 1px solid rgba(50, 50, 50, 1);
+    padding-top: 1em;
+
+    border-radius: 5px 0px 0px 0px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+
 }
 
-p{
-    color: rgba(50, 50, 200, 1);
-    font-family: Monaco;
-    font-weight: bold;
+.message-box{
+    font-family: "Monaco";
+    background-color: #d2d4ce; 
+    min-height: 400px;
+    max-height: 400px; 
+    overflow: auto;
+    padding-top: 1em;
+
+
+    border-radius: 0px 5px 0px 0px;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
 }
 
-div.status{
-    display: block;
-    font-size: 1em;
-    color: rgba(250, 150, 150, 1);
-    font-style: italic;
-    font-weight: bold;
-    margin: 0 auto;
+.status-box{
+    font-family: "Monaco";
+    background-color: #787e6c; 
+    min-height: 4em; 
+    max-height: 4em;
+    max-width: 200px;
+    border-radius: 0px 0px 0px 5px;
+    margin-right: 0;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+    border-left: none;
+    border-bottom: none;
 }
 
-form {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+.message-stats{
+    color: white; 
+    font-size: 0.8em; 
+    margin-top: 3px;
+}
+
+.users-stats{
+    color: white; 
+    font-size: 0.8em; 
+    margin-top: -7px; 
+    margin-bottom: 2px
+}
+
+.status-label{
+    color: #6EEB83; 
+    font-size: 0.8em; 
+    margin-top: 0px; 
+    margin-bottom: 2px
+}
+
+textarea.form-control{
+    overflow: hidden;
+    resize: none !important;
+    border-radius: 0px 0px 0px 0px;
+    overflow: auto;
+    margin-left:-15px !important;
+    width: calc(100% + 30px) !important;
+
+    min-height: 4em; 
+    max-height: 4em;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+.form-control:focus, .input-group-btn{
+    border-color: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;    
+    outline:none !important;
+}
+
+.big-glyph {
+    font-size: 1.5em;
+    align-self: center;
+}
+
+.send-btn{
+    min-height: 4em; 
+    max-height: 4em;
+    width: calc(100% + 30px);
+    border-radius: 0px 0px 5px 0px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+
+    margin-left: -15px;
+    outline:none !important;
+
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+
+    text-align: center;
+}
+
+.btn {
+    outline:none !important;
+    text-transform: uppercase;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+
+
+}
+.btn-custom {
+    outline: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: grey;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+.btn-custom:hover,
+.btn-custom:active,
+.btn-custom.active {
+    background-color: #0077b3;
+    outline:none !important; 
+    border-color: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.btn-custom.disabled:hover,
+.btn-custom.disabled:focus,
+.btn-custom.disabled:active,
+.btn-custom.disabled.active,
+.btn-custom[disabled]:hover,
+.btn-custom[disabled]:focus,
+.btn-custom[disabled]:active,
+.btn-custom[disabled].active,
+fieldset[disabled] .btn-custom:hover,
+fieldset[disabled] .btn-custom:focus,
+fieldset[disabled] .btn-custom:active,
+fieldset[disabled] .btn-custom.active {
+    outline:none !important;
+    border-color: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
