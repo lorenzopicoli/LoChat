@@ -1,4 +1,5 @@
-var socket = io("http://lochat-lorenzopicoli.rhcloud.com:3000");
+var socket = io("http://lochat-lorenzopicoli.rhcloud.com:8000");
+// var socket = io("192.168.25.6:1337");
 var isWindowFocused = true;
 var $messages = $("#messagesBox");
 
@@ -108,6 +109,7 @@ $("#sendBtn").on("click", function(){
 	var input = $('#newMessageBox');
       if(input.val() === "/connect"){
          socket.connect();
+         socket.emit("askStatusUpdate");
       }else{
       	socket.emit("newMessage", input.val());
      }
