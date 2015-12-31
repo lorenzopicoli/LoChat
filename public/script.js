@@ -1,4 +1,4 @@
-var socket = io("http://nodejs-lochat.rhcloud.com:3000");
+var socket = io("http://lochat-lorenzopicoli.rhcloud.com:3000");
 var isWindowFocused = true;
 var $messages = $("#messagesBox");
 
